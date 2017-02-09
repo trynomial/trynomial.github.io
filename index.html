@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <head>
+  <title>TRYNOMIAL</title>
+  
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+     <style>
+     path {
+      fill: none;
+      stroke: #2a3745;
+      stroke-width: 20;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+    #primo {
+      stroke-dasharray: 320;
+    }
+    #testo {
+
+    }
+
+    @font-face {
+      font-family: 'NPNaipolAllinOne-Bold';
+      src: url('NPaio.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'litoscript-it';
+      src:url('litscit.otf') format('opentype');
+
+    }
+    </style>
+    <script src="./snap.svg.js"></script>
+    <script type="text/javascript">
+    // do not look directly at the code, your eyes might suddenly catch fire.
+    // one day or another i'll clean it up, promise!
+    window.onload = function(){
+      function partilinee(){
+        linee.attr({visibility:"visible"});
+        linee.animate({strokeDashoffset:-lunghezza},5000, mina.easeinout,function(){
+          linee.attr({display: "none"});
+          //destra.attr({display: "none"});
+          });
+        setTimeout(function(){assi.attr({visibility:"visible"});assi.animate({strokeDashoffset: 0 }, 2500, mina.easeout, function(){partiarchi()});},2500);
+      };
+      function sgonfiaorigini(){
+        origini.animate({r:0},2500);
+        document.getElementById("Livello_1").onmouseover="";
+
+      };
+      function partiarchi(){
+        arcodx.attr({visibility: "visible"});
+        arcosx.attr({visibility: "visible"});
+        arcodx.animate({strokeDashoffset:0},4000, mina.easeinout);
+        arcosx.animate({strokeDashoffset:0},4000, mina.easeinout);
+        document.getElementById("testo").style.opacity="1";
+
+        barretta.attr({visibility: "visible"});
+        //onmouseenter="document.getElementById('motto').style.opacity='1'"
+      //onmouseleave="document.getElementById('motto').style.opacity='0'"
+        barretta.animate({strokeDashoffset:0},4000,mina.easein,
+          function(){
+                      document.getElementById("testo").setAttribute("onmouseenter","document.getElementById('motto').style.opacity='1'");
+                      document.getElementById("testo").setAttribute("onmouseleave","document.getElementById('motto').style.opacity='0'");
+                      setTimeout(function(){document.getElementById("disclaimer").style.opacity=1;},3300)
+                      setTimeout(function(){document.getElementById("ohwell").style.opacity=1;},6500)
+                      setTimeout(function(){document.getElementById("ohmy").style.opacity=1;},8500)
+                      setTimeout(function(){document.getElementById("however").style.opacity=1;},12500)
+
+                    });
+      };
+
+      var svg = Snap("#Livello_1");
+
+      var originesx = Snap("#originesinistra");
+      var originedx = Snap("#originedestra");
+      var originebs = Snap("#originebasso");
+      var origini = Snap([originesx,originedx,originebs]);
+      //origini.attr({visibility:"hidden"});
+      var arcosx= Snap("#arcosinistra");
+      var arcodx = Snap("#arcodestra");
+      var larco= Snap.path.getTotalLength(arcosx);
+      arcosx.attr({strokeDashoffset: -larco, strokeDasharray: larco,visibility:"hidden"});
+      arcodx.attr({strokeDashoffset: larco, strokeDasharray: larco,visibility:"hidden"});
+
+      var barretta = Snap("#barretta");
+      var lbarr = Snap.path.getTotalLength(barretta);
+      barretta.attr({strokeDashoffset: -lbarr, strokeDasharray: lbarr, visibility:"hidden"});
+
+      origini.attr({fillOpacity: 0, r:0});
+
+      var uno=Snap("#nerobasso");
+      var due=Snap("#nerodestra");
+      var tre=Snap("#nerosinistra");
+
+      var alto = Snap("#verdealto");
+      var sinistra= Snap("#rossosinistra");
+      var destra = Snap("#bludestra");
+
+
+      var linee= Snap([uno,due,tre]);
+      var assi = Snap([alto,sinistra,destra]);
+      assi.attr({visibility: "hidden"})
+
+      var lunghezza = Snap.path.getTotalLength(uno);
+      linee.attr({
+        strokeDasharray: [lunghezza,lunghezza+1],
+        strokeDashoffset: lunghezza,
+        visibility: "hidden"
+
+      });
+
+      var finito=0;
+      assi.attr({
+        strokeDasharray: lunghezza,
+        strokeDashoffset:-lunghezza
+      })
+      //origini.animate({fillOpacity:1, r:5},4000,mina.linear,function(){ setTimeout(function(){sgonfiaorigini(); partilinee()},750) });
+
+      svg.attr({visibility:"visible"});
+      
+      origini.animate({fillOpacity:1, r:5},4000, function(){ document.getElementById("Livello_1").onmouseover=function(){sgonfiaorigini();partilinee();}});
+    }
+    </script>
+  </head>
+  <body>
+    <div><center>
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="300px" height="300px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300; " xml:space="preserve" visibility="hidden" >
+<g id="linee" >
+  <path id="nerobasso" style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" d="
+    M150.0049,284.9922v-135"/>
+  <path id="nerodestra" style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" d="
+    M266.9032,82.4913l-116.9134,67.5"/>
+  <path id="nerosinistra" style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" d="
+    M33.0831,82.5048l116.9134,67.5"/>
+</g>
+<g id="livbarretta">
+  <path id="barretta" style="fill:none;stroke:#FFD700;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" d="
+    M107.7305,125.6025L150,150"/>
+</g>
+<g id="assi">
+  <path id="verdealto" style="fill:#00FF00;stroke:#00DE00;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" d="
+    M149.9895,15.0004v135"/>
+  <path id="rossosinistra" style="fill:#FF0000;stroke:#FF0000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" d="
+    M33.0907,217.5014l116.9134-67.5"/>
+  <path id="bludestra" style="fill:#00FF00;stroke:#0000FF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" d="
+    M266.9114,217.4878l-116.9134-67.5"/>
+</g>
+<g id="origini">
+  <circle id="originesinistra" style="fill-opacity:0.6884;" cx="33.0831" cy="82.5048" r="1.5"/>
+  <circle id="originedestra" style="fill-opacity:0.6884;" cx="266.9032" cy="82.4913" r="1.5"/>
+  <circle id="originebasso" style="fill-opacity:0.6884;" cx="150.0049" cy="284.9922" r="1.5"/>
+</g>
+<g id="arco">
+
+    <linearGradient id="arcosinistra_1_" gradientUnits="userSpaceOnUse" x1="330.9792" y1="379.9748" x2="392.2896" y2="431.3659" gradientTransform="matrix(0.7664 0.6424 0.6424 -0.7664 -387.7471 263.662)">
+    <stop  offset="0" style="stop-color:#FF0000"/>
+    <stop  offset="1" style="stop-color:#0000FF"/>
+  </linearGradient>
+  <path id="arcosinistra" style="fill:none;stroke:url(#arcosinistra_1_);stroke-width:2.6;stroke-linecap:round;" d="
+    M149.8741,194.9445c-16.3187,0.0076-31.8003-7.2232-42.2686-19.7419"/>
+
+    <linearGradient id="arcodestra_1_" gradientUnits="userSpaceOnUse" x1="35.8146" y1="79.0371" x2="114.7307" y2="65.9129" gradientTransform="matrix(0.9865 -0.1641 -0.1641 -0.9865 87.6369 269.1608)">
+    <stop  offset="0" style="stop-color:#FF0000"/>
+    <stop  offset="1" style="stop-color:#0000FF"/>
+  </linearGradient>
+  <path id="arcodestra" style="fill:none;stroke:url(#arcodestra_1_);stroke-width:2.6;stroke-linecap:round;" d="M192.3667,175.6895
+    c-10.6114,12.3976-26.175,19.4501-42.4926,19.255"/>
+</g>
+</svg>
+<br>
+<span id="testo" style="font-family: 'NPNaipolAllinOne-Bold', Times, serif; opacity:0; font-size: 5em; transition: opacity 4s ease-in; "
+>TRYNOMIAL</span>
+<br>
+<span id="motto" style="font-family: 'litoscript-it', Times, serif; opacity:0; font-size: 1.5em; transition: opacity 4s "  >"Shall we try?"</span>
+<br>
+<br><br><br><br><br><br>
+<span id="disclaimer" style="font-family:'palatino' ; opacity:0; transition: opacity 4s">The work is still in progress<br></span>
+<span id ="ohwell" style="font-family: 'palatino'; opacity: 0; transition: opacity 2s "><br><br>More will come<br>soon</span>
+<span id = "ohmy" style="font-family: 'palatino'; opacity: 0;transition: opacity 3s " onclick="alert('non ancora')" ><br><br><br>.</span>
+<span id = "however" style="font-family: 'palatino'; opacity: 0;transition: opacity 3s "><br>In the meanwhile, you can take a look at some stuff<br>
+And some doors are open, to those who know where to knock<br>
+Except for █████, for such way is closed.</span>
+
+
+    </center>
+    </div>
+  </body>
+</html>
